@@ -1,5 +1,5 @@
 ---
-- name: Installing db
-  become: yes
+- hosts: db
   roles:
-    - role: mysql
+  - mysql
+  become: true
