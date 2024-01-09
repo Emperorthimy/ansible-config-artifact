@@ -121,7 +121,7 @@ mysql_users:
   #    priv: admin.*:ALL
    
    - name: webaccess
-     host: 127.0.0.1
+     host: 0.0.0.0
      password: secret1
      priv: webaccess.*:ALL
 
