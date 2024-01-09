@@ -1,11 +1,5 @@
-[nfs]
-172.31.10.238 ansible_ssh_user='ec2-user'
-
-[webservers]
-172.31.11.50 ansible_ssh_user='ec2-user'
-172.31.8.154 ansible_ssh_user='ec2-user'
-
 [db]
+ feature/jenkinspipeline-stages
 172.31.5.190 ansible_ssh_user='ubuntu' 
 
 [lb]
