@@ -1,6 +1,5 @@
 [db]
- feature/jenkinspipeline-stages
 172.31.5.190 ansible_ssh_user='ubuntu' 
 
-[lb]
+[nginx]
 172.31.23.85 ansible_ssh_user='ubuntu'
