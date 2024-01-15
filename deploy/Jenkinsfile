@@ -28,23 +28,10 @@ pipeline {
      }
 
       stage('Run Ansible playbook') {
-    steps {
-        script {
-            sh 'ls -la playbooks'  // Adjust the directory name if needed
-            ansiblePlaybook(
-                become: true,
-                colorized: true,
-                credentialsId: 'private-key',
-                disableHostKeyChecking: true,
-                installation: 'ansible',
-                inventory: 'inventory/dev.yml',
-                playbook: 'playbooks/site.yml',  // Update the playbook path
-                vaultTmpPath: ''
-            )
-        }
-    }
-}
-
+        steps {
+           ansiblePlaybook become: true, colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook:'playbooks/site.yml', vaultTmpPath: ''
+         }
+      }
 
       stage('Clean Workspace after build'){
         steps{
