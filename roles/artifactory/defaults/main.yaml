@@ -1,60 +1,5 @@
-artifactory
-===========
-
-Ansible role which helps to install and configure Artifactory.
-
-The configuration of the role is done in such way that it should not be
-necessary to change the role for any kind of configuration. All can be
-done either by changing role parameters or by declaring completely new
-configuration as a variable. That makes this role absolutely
-universal. See the examples below for more details.
-
-Please report any issues or send PR.
-
-
-Examples
---------
-
-```
 ---
 
-- name: Example of how to install Artifactory OSS with default settings
-  hosts: all
-  roles:
-    - artifactory
-
-- name: Example of how to install Artifactory PRO with default settings
-  hosts: all
-  vars:
-    # When license is specified, it will automatically use PRO version
-    artifactory_license: "{{ lookup('file', '/path/to/artifactory.lic') }}"
-  roles:
-    - artifactory
-
-- name: Example of how to install Artifactory with PostgreSQL DB
-  hosts: all
-  vars:
-    # Specify DB engine to be PostgreSQL
-    artifactory_db_engine: postgresql
-  roles:
-    - postgresql
-    - artifactory
-
-- name: Example of how to install Artifactory with MySQL DB
-  hosts: all
-  vars:
-    # Specify DB engine to be MySQL
-    artifactory_db_engine: mysql
-  roles:
-    - mysql
-    - artifactory
-```
-
-
-Role variables
---------------
-
-```
 # YUM repo URL
 artifactory_yumrepo_url: "{{
   'http://jfrog.bintray.com/artifactory-pro-rpms'
@@ -169,24 +114,3 @@ artifactory_db_conf:
   url: jdbc:{{ artifactory_db_engine }}://{{ artifactory_db_host }}:{{ artifactory_db_port }}/{{ artifactory_db_name }}
   username: "{{ artifactory_db_user }}"
   password: "{{ artifactory_db_password }}"
-```
-
-
-Dependencies
-------------
-
-- [`config_encoder_filters`](https://github.com/jtyr/ansible-config_encoder_filters)
-- [`postgresql`](https://github.com/jtyr/ansible-postgresql) (optional)
-- [`oracle_java`](https://github.com/jtyr/ansible-oracle_java) (optional)
-
-
-License
--------
-
-MIT
-
-
-Authors
--------
-
-Dennis Tait, Jiri Tyr
